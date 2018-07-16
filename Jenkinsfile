@@ -26,7 +26,13 @@ node('on-demand') {
         }
         echo "commitId=${commitId}\n buildId=${buildId}"
 
-        stage 'go test'
+        stage 'dependencies'
+        sh '''
+          make deps
+          make deps-test
+        '''
+
+        stage 'test'
         sh '''
           make test
         '''
@@ -35,6 +41,16 @@ node('on-demand') {
           stage 'build'
           sh '''
             make build-service
+          '''
+
+          stage 'deploy'
+          sh '''
+            echo
+          '''
+
+          stage 'cleanup'
+          sh '''
+            make clean
           '''
         }
       }

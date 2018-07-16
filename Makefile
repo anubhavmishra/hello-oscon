@@ -15,8 +15,8 @@ deps:
 build-service: ## Build the project
 	mkdir -p ./build/linux/amd64
 	GOOS=linux GOARCH=amd64 go build -v -o ./build/linux/amd64/hello-oscon .
-	docker build -t $(IMAGE_NAME):$(BUILD_ID) .
-	docker tag $(IMAGE_NAME):$(BUILD_ID) $(IMAGE_NAME):latest
+	#docker build -t $(IMAGE_NAME):$(BUILD_ID) .
+	#docker tag $(IMAGE_NAME):$(BUILD_ID) $(IMAGE_NAME):latest
 
 push: ## Docker push the service images tagged 'latest' & 'BUILD_ID'
 	docker push $(IMAGE_NAME):$(BUILD_ID)
