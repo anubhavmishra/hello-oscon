@@ -4,7 +4,7 @@ def buildId
 def commitId
 def commitIdSubString
 
-node() {
+node('on-demand') {
   currentBuild.result = "SUCCESS"
   try {
 
