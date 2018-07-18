@@ -22,7 +22,7 @@ func main() {
 		httpPort = "8080"
 	}
 	httpAddr := fmt.Sprintf("%s:%s", httpBindAddr, httpPort)
-	log.Println("Starting hello-oscon app on port 8080...")
+	log.Println("Starting hello-oscon app.....")
 
 	mux := http.NewServeMux()
 	mux.Handle("/", handlers.HelloWorldHandler(os.Getenv("MESSAGE"), version))
