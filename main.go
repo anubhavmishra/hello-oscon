@@ -25,7 +25,7 @@ func main() {
 	log.Println("Starting hello-oscon app.....")
 
 	mux := http.NewServeMux()
-	mux.Handle("/", handlers.HelloWorldHandler(os.Getenv("MESSAGE"), version))
+	mux.Handle("/", handlers.HelloWorldHandler("hello oscon, I am mishra.", version))
 	mux.HandleFunc("/healthz", handlers.HealthCheck)
 
 	httpServer := manners.NewServer()
